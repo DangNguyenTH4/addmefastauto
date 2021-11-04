@@ -7,50 +7,41 @@
 	Template AutoIt script.
 
 #ce ----------------------------------------------------------------------------
-#include <MsgBoxConstants.au3>
-#include <hotKeyExitApp.au3>
-#include <onlyRefreshPage.au3>
 
-$x=0;
-$total=0
-While $x<20
+Func twitterFollow()
+	Local $timeFromActionBtnToRealAction= 4500 ;Khoang thoi gian doi, sau khi click button de show ra website, fanpage
+	Local $timeFromRealActionToClose = 5000 ;waiting time after click like a page -> Then click close button
+	Local $timeFromCloseToConfirm = 2000 ; khoang thoi gian doi sau khi click button close
+	Local $timeFromConfirmToNextAction = 3000 ;khoang thoi gian
+	Local $popupButtonColorCode = "0x9EDD4A" ; ma mau can tim
+	Local $foundButtonExtentX = 20
+	Local $foundButtonExtentY = 20
+	Local $LEFT_MOUSE = "left"
+	Local $REAL_ACTION_BTN_X = 385
+	Local $REAL_ACTION_BTN_Y = 212
+	Local $CLOSE_BTN_X = 587
+	Local $CLOSE_BTN_Y = 10
+	Local $x=0;
 
-   #cs
-   ;if $x = 0 Then
-	  RefreshPage()
-	  Sleep(1000)
-   ;EndIf
-   #ce
+	While $x<20
 
-   ;if $x <> 0 then Sleep(7000);0x9EDD4A
-   Sleep(3000);
-   $mang = PixelSearch(@DesktopWidth*2/3,0,@DesktopWidth,@DesktopHeight,"0x9EDD4A")
-   if IsArray($mang) Then
+	   ;if $x <> 0 then Sleep(7000);0x9EDD4A
+	   Sleep($timeFromConfirmToNextAction);
+	   $mang = PixelSearch(@DesktopWidth*2/3,0,@DesktopWidth,@DesktopHeight,$popupButtonColorCode)
+	   if IsArray($mang) Then
 
-	  MouseMove($mang[0]+80,$mang[1]+15)
-	  MouseClick("left") ;like,follow, subcribe...
-	  Sleep(4500);
-	  MouseClick("left",385, 212) ;do like,...
-	  Sleep(5000);
-	  MouseClick("left",587, 10) ; x
-	  Sleep(2000)
-	  MouseMove($mang[0]+80,$mang[1]+15)
-	  MouseClick("left")
-   else
-	  RefreshPage()
-	  $x=1
-	  $total=1
-   EndIf
+		  MouseClick($LEFT_MOUSE, $mang[0]+$foundButtonExtentX,$mang[1]+$foundButtonExtentY)
+		  Sleep($timeFromActionBtnToRealAction);
+		  MouseClick($LEFT_MOUSE,$REAL_ACTION_BTN_X, $REAL_ACTION_BTN_Y) ;do like,...
+		  Sleep($timeFromRealActionToClose);
+		  MouseClick($LEFT_MOUSE,$CLOSE_BTN_X, $CLOSE_BTN_Y) ; x
+		  Sleep($timeFromCloseToConfirm)
+		  MouseClick($LEFT_MOUSE, $mang[0]+$foundButtonExtentX,$mang[1]+$foundButtonExtentY)
+	   else
+		  ;RefreshPage()
+	   EndIf
 
-   If $x=19 Then
-	  $x=1;
-	  Sleep(10000);
-   EndIf
-   $x=$x+1
-   If $total = 30 then
-	  RefreshPage()
-	  $total = 1
-   EndIf
-   $total = $total+1
+	   $x=$x+1
 
-WEnd
+	WEnd
+EndFunc
