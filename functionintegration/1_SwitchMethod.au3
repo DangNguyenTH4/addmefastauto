@@ -34,8 +34,9 @@ Local $currentCanWorkIndex = -1
 While $currentCanWorkIndex < $MAX_CAN_WORK_SIZE
 	$currentCanWorkIndex = $currentCanWorkIndex + 1 ;
 	Local $methodId = $arrayCanWorkMethodId[$currentCanWorkIndex]
-	ChangeUrlGetPoint($methodId)
-	doAction($methodId)
+	If ChangeUrlGetPoint($methodId) Then
+		doAction($methodId)
+	EndIf
 	If $currentCanWorkIndex = $MAX_CAN_WORK_SIZE - 1 Then
 		$currentCanWorkIndex = -1
 	EndIf
@@ -44,6 +45,9 @@ WEnd
 
 Func ChangeUrlGetPoint(ByRef $methodId)
 	$url = getUrl($methodId)
+	If $url="" Then
+		return False;
+	EndIf
 	ConsoleWrite("-"&$methodId)
 	MouseClick("left", 1556, 63)
 	;Refresh Page
@@ -54,6 +58,7 @@ Func ChangeUrlGetPoint(ByRef $methodId)
 	Sleep(1000)
 	Send("{ENTER}")
 	Sleep(6000)
+	return true
 EndFunc   ;==>ChangeUrlGetPoint
 
 
@@ -62,9 +67,9 @@ Func getUrl(ByRef $methodId)
 	Local $result = "" ;
 	Switch $methodId
 		Case 1 ; fblike page
-			$result = "https://addmefast.com/free_points/facebook_likes"
+			;$result = "https://addmefast.com/free_points/facebook_likes"
 		Case 2 ; fbshare
-			$result = "https://addmefast.com/free_points/facebook_share"
+			;$result = "https://addmefast.com/free_points/facebook_share"
 		Case 3 ; fb subcibe page
 			$result = "https://addmefast.com/free_points/facebook_subscribes"
 		Case 4 ; fb like post
