@@ -21,11 +21,14 @@
 #include <YoutubeSub.au3>
 #include <TweeterLike.au3>
 #include <TwiiterFollow.au3>
+#include <Z_SoundCloudLike.au3>
+#include <Z_SoundCloudFollow.au3>
+#include <Z_SoundCloudPlay.au3>
 
-Local $MAX_CAN_WORK_SIZE = 13
+Local $MAX_CAN_WORK_SIZE = 16
 ;danh sach cac method id co the su dung
-Local $arrayCanWorkMethodId[$MAX_CAN_WORK_SIZE] = [1, 8, 9, 10, 11, 13, 14, 15, 16, 17, 20, 21, 22]
-Local $currentCanWorkIndex = 9
+Local $arrayCanWorkMethodId[$MAX_CAN_WORK_SIZE] = [1, 8, 9, 10, 11, 13, 14, 15, 16, 17, 20, 21, 22, 24, 25, 26]
+Local $currentCanWorkIndex = 12
 
 
 While $currentCanWorkIndex < $MAX_CAN_WORK_SIZE
@@ -180,11 +183,11 @@ Func doAction(ByRef $methodId)
 		Case 23 ; likee follow
 			likeeAction()
 		Case 24 ; soundcloud like
-
+			soundCloudLike()
 		Case 25 ; soundcloud follow
-
+			soundCloudFollow()
 		Case 26 ; soundcloud view
-
+			soundCloudPlay()
 		Case 27 ; vkontakte group
 
 		Case 28 ; vkontakte page
