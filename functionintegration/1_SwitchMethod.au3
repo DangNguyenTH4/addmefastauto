@@ -28,7 +28,7 @@
 Local $MAX_CAN_WORK_SIZE = 16
 ;danh sach cac method id co the su dung
 Local $arrayCanWorkMethodId[$MAX_CAN_WORK_SIZE] = [1, 8, 9, 10, 11, 13, 14, 15, 16, 17, 20, 21, 22, 24, 25, 26]
-Local $currentCanWorkIndex = 12
+Local $currentCanWorkIndex = -1
 
 
 While $currentCanWorkIndex < $MAX_CAN_WORK_SIZE
@@ -44,7 +44,7 @@ WEnd
 
 Func ChangeUrlGetPoint(ByRef $methodId)
 	$url = getUrl($methodId)
-	ConsoleWrite($url)
+	ConsoleWrite("-"&$methodId)
 	MouseClick("left", 1556, 63)
 	;Refresh Page
 	Sleep(1000)
