@@ -24,6 +24,7 @@
 #include <Z_SoundCloudLike.au3>
 #include <Z_SoundCloudFollow.au3>
 #include <Z_SoundCloudPlay.au3>
+#include <TelegramJoin.au3>
 
 Local $MAX_CAN_WORK_SIZE = 16
 ;danh sach cac method id co the su dung
@@ -48,8 +49,8 @@ Func ChangeUrlGetPoint(ByRef $methodId)
 	If $url="" Then
 		return False;
 	EndIf
-	ConsoleWrite("-"&$methodId)
-	MouseClick("left", 1556, 63)
+	ConsoleWrite("Method-"&$methodId)
+	MouseClick("left", 1635, 58)
 	;Refresh Page
 	Sleep(1000)
 	Send("{LCTRL}")
@@ -84,7 +85,7 @@ Func getUrl(ByRef $methodId)
 			$result = "https://addmefast.com/free_points/telegram_subscribers"
 		Case 9 ; instagram follow
 
-			$result = "https://addmefast.com/free_points/instagram"
+			;$result = "https://addmefast.com/free_points/instagram"
 		Case 10 ; instagram_likes
 
 			$result = "https://addmefast.com/free_points/instagram_likes"
@@ -156,7 +157,7 @@ Func doAction(ByRef $methodId)
 		Case 7 ; reddit upvotes
 
 		Case 8 ; telegram join/subcribe group
-
+			telegramJoinChannel()
 		Case 9 ; instagram follow
 			instagramFollow()
 		Case 10 ; instagram_likes
