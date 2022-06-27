@@ -39,7 +39,7 @@ Func twitterFollow()
 		  Sleep($timeFromCloseToConfirm)
 		  MouseClick($LEFT_MOUSE, $mang[0]+$foundButtonExtentX,$mang[1]+$foundButtonExtentY)
 	   else
-		  ;RefreshPage()
+		  RefreshPage()
 	   EndIf
 
 	   $x=$x+1
