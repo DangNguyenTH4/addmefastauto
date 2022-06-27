@@ -1,11 +1,12 @@
 #cs ----------------------------------------------------------------------------
 
  AutoIt Version: 3.3.14.5
- Author:         myName
+ Author:         dangnt
 
  Script Function:
-	Template AutoIt script.
-5
+	Auto like, subribe social
+	Fit with screen: 1848 x 972
+	
 #ce ----------------------------------------------------------------------------
 ;system lib
 #include <Array.au3>
@@ -57,6 +58,7 @@ Func ChangeUrlGetPoint(ByRef $methodId)
 	Sleep(1000)
 	Send($url)
 	Sleep(1000)
+	Send("{SPACE}")
 	Send("{ENTER}")
 	Sleep(6000)
 	return true
@@ -68,7 +70,7 @@ Func getUrl(ByRef $methodId)
 	Local $result = "" ;
 	Switch $methodId
 		Case 1 ; fblike page
-			;$result = "https://addmefast.com/free_points/facebook_likes"
+			$result = "https://addmefast.com/free_points/facebook_likes"
 		Case 2 ; fbshare
 			;$result = "https://addmefast.com/free_points/facebook_share"
 		Case 3 ; fb subcibe page
@@ -84,17 +86,14 @@ Func getUrl(ByRef $methodId)
 		Case 8 ; telegram join/subcribe group
 			$result = "https://addmefast.com/free_points/telegram_subscribers"
 		Case 9 ; instagram follow
-
-			;$result = "https://addmefast.com/free_points/instagram"
+			$result = "https://addmefast.com/free_points/instagram"
 		Case 10 ; instagram_likes
-
 			$result = "https://addmefast.com/free_points/instagram_likes"
 		Case 11 ; tiktok follow
 			$result = "https://addmefast.com/free_points/tiktok_followers"
 		Case 12 ; tiktok follow
 			$result = "https://addmefast.com/free_points/tiktok_video_likes"
 		Case 13 ; twitter follow
-
 			$result = "https://addmefast.com/free_points/twitter"
 		Case 14 ; twitter retweet
 			$result = "https://addmefast.com/free_points/twitter_tweets"

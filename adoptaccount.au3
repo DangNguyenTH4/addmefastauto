@@ -69,8 +69,10 @@ Func getUrl(ByRef $methodId)
 			$result = "https://soundcloud.com/discover"
 		Case 9 ; ok.ru
 			$result = "https://ok.ru"
-		Case 9 ; ok.ru
+		case 10 ; likee.rui
 			$result = "https://likee.video"
+		case 11 ; likee.rui
+			$result = "https://reverbnation.com"
 	EndSwitch
 	Return $result
 EndFunc   ;==>getUrl

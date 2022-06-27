@@ -18,7 +18,7 @@ Func instagramFollow()
 		  Sleep($timeFromFollowToRealFollow)
 
 		  ;Click subribe dicrectly => may be unsubcribe it ok
-		  MouseClick("left",170, 203)
+		  MouseClick("left",262, 206)
 		  Sleep($timeFromRealFollowToClose)
 		  MouseClick("left",535, 12)
 		  ; Updated : Click Confirm
