@@ -87,7 +87,7 @@ Func getUrl(ByRef $methodId)
 ;~ 			$clickBodyX = 1600
 ;~ 			$clickBodyY = 185		
 		case 10 ; likee.rui
-			;$result = "https://likee.video"
+			$result = "https://likee.video"
 		case 11 ; likee.rui
 			$result = "https://reverbnation.com"
 ;~ 			$clickBodyX = 1400
