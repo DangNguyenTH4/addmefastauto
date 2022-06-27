@@ -1,9 +1,9 @@
 ;RefreshPage();
 
 Func RefreshPage()
-   MouseClick("left",1150, 20)
+   MouseClick("left",1400, 60)
    ;Refresh Page
    Send("{F5}")
-   Sleep(3000)
+   Sleep(5000)
    ;Send("{DOWN}")
 EndFunc
