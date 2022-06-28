@@ -1,27 +1,20 @@
 Func instagramLike()
 	$x=0;
+	Local $imagePath = @ScriptDir & "\resource\bitmap\instalikeicon.bmp"
 	While $x<20
-	   ; Neu la lan dau tien thi khong can doi. Neu khac lan dau tien thi doi x giay
-	   if $x <> 0 then Sleep(3900);
-	   ; Tim kiem nut :Like, Follow, Join ...
+	   Sleep(3900);
 	   $mang = PixelSearch(@DesktopWidth*2/3,0,@DesktopWidth,@DesktopHeight,"0x9EDD4A")
-	   ; Neu tim thay thi thuc hien click vao nut Like...de mo addmefast mo tab moi
 	   if IsArray($mang) Then
-		  ;Click vao nut
-		  MouseMove($mang[0]+5,$mang[1]+5)
-		  MouseClick("left") ;like,follow, subcribe...
-		  ; Doi tab moi mo ra va load trang
+		  MouseClick("left",$mang[0]+5,$mang[1]+5) 
 		  Sleep(10000);
-		  ;Thuc hien click nut
-		  ;MouseClick("left",38, 556); //Tweet
-		  MouseClick("left",34, 486); //Tweet
+		  findButtonAndClick($imagePath) ;find and click likeicon
 		  Sleep(3000);
 		  ; Thuc hien dong tab vua mo
 		  MouseClick("left",284, 8);
 		  ; Updated : Click Confirm
 		  Sleep(3000)
-		  MouseMove($mang[0]+20,$mang[1]+20)
-		  MouseClick("left")
+		   MouseClick("left",$mang[0]+20,$mang[1]+20)
+		 
 	   Else
 		  RefreshPage()
 	   EndIf

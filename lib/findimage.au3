@@ -11,7 +11,7 @@ Func findButtonAndClick(ByRef $imagePath)
 
     Local $return = _ImageSearch($imagePath)
     If $return[0] = 1 Then
-        ConsoleWrite(" X=" & $return[1] & " Y=" & $return[2] & @CRLF)
+        ConsoleWrite(" X=" & $return[1] & " Y=" & $return[2])
         MouseClick("left", $return[1], $return[2])
 		Sleep(1000)
 	Else

@@ -1,7 +1,5 @@
-#include <..\lib\findimage.au3>
 Func youtubeLikeVideo()
 	$x=0
-	Local $mang
 	Local $mangButton
 	Local $imagePath = @ScriptDir & "\resource\bitmap\youtubelikeicon.bmp"
 
@@ -13,17 +11,18 @@ Func youtubeLikeVideo()
 	Local $LEFT_MOUSE = "left"
 
 	While $x<20
-	   if $x <> 0 then Sleep($timeFromConfirmToLike)
+	   Sleep($timeFromConfirmToLike)
 	   $mangButton = PixelSearch(@DesktopWidth*2/3,0,@DesktopWidth,@DesktopHeight,$popupButtonColorCode)
 	   if IsArray($mangButton) Then
-		  MouseClick($LEFT_MOUSE,$mangButton[0]+80, $mangButton[1]+20) ; open like
-		  Sleep($timeFromLikeToRealLike)
+		MouseClick($LEFT_MOUSE,$mangButton[0]+80, $mangButton[1]+20) ; open like
+		Sleep($timeFromLikeToRealLike)
+		findButtonAndClick($imagePath) ;find and click likeicon
+		Sleep($timeFromRealLikeToClose)
+		MouseClick($LEFT_MOUSE,485, 13)
 	   Else
 		  RefreshPage()
 	   EndIf
-	   findButtonAndClick($imagePath) ;find and click likeicon
-	   Sleep($timeFromRealLikeToClose)
-	   MouseClick($LEFT_MOUSE,485, 13)
+	 
 	   $x=$x+1
 	WEnd
 EndFunc
