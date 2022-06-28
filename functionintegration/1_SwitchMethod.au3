@@ -30,13 +30,14 @@
 #include <Reverbnation3step.au3>
 #include <instagramLike.au3>
 #include <YoutubeLikeVideo.au3>
+#include <RedditJoin.au3>
+#include <RedditUpVote3Step.au3>
+#include <OkRuJoin.au3>
 
 Local $MAX_CAN_WORK_SIZE = 31
 ;danh sach cac method id co the su dung
 Local $arrayCanWorkMethodId[$MAX_CAN_WORK_SIZE] = [1,2,3,4,5,6,7,8, 9,10,11,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,30,31]
 Local $currentCanWorkIndex = -1
-
-
 While $currentCanWorkIndex < $MAX_CAN_WORK_SIZE
 	$currentCanWorkIndex = $currentCanWorkIndex + 1 ;
 	Local $methodId = $arrayCanWorkMethodId[$currentCanWorkIndex]
@@ -74,7 +75,7 @@ Func getUrl(ByRef $methodId)
 	Local $result = "" ;
 	Switch $methodId
 		Case 1 ; fblike page
-			;$result = "https://addmefast.com/free_points/facebook_likes"
+			$result = "https://addmefast.com/free_points/facebook_likes"
 		Case 2 ; fbshare
 			;$result = "https://addmefast.com/free_points/facebook_share"
 		Case 3 ; fb subcibe page
@@ -154,9 +155,9 @@ Func doAction(ByRef $methodId)
 		Case 5 ; fb share post
 
 		Case 6 ; reddit
-
+			redditJoin()
 		Case 7 ; reddit upvotes
-
+			redditUpvote()
 		Case 8 ; telegram join/subcribe group
 			telegramJoinChannel()
 		Case 9 ; instagram follow
@@ -168,11 +169,11 @@ Func doAction(ByRef $methodId)
 		Case 12 ; tiktok Like
 
 		Case 13 ; twitter follow
-			;twitterFollow()
+			twitterFollow()
 		Case 14 ; twitter retweet
 
 		Case 15 ; twitter like tweet
-			;tweeterLike()
+			tweeterLike()
 		Case 16 ; youtube subcrite
 			youtubeSub()
 		Case 17 ; youtube likes
@@ -202,9 +203,10 @@ Func doAction(ByRef $methodId)
 		Case 29 ; askfm like
 
 		Case 30 ; ok group join
-
+			okRuJoin()
 		Case 31 ; reverbnation
 			becomeAfan()
+
 
 	EndSwitch
 EndFunc   ;==>doAction

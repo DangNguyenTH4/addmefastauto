@@ -63,7 +63,7 @@ Func getUrl(ByRef $methodId)
 ;~ 			$clickBodyX = 1000
 ;~ 			$clickBodyY = 300			
 		Case 4 ; tiktok
-			;$result = "https://www.tiktok.com"
+			$result = "https://www.tiktok.com"
 ;~ 			$clickBodyX = 1556
 ;~ 			$clickBodyY = 200					
 		Case 5 ; reddit
@@ -71,7 +71,7 @@ Func getUrl(ByRef $methodId)
 ;~ 			$clickBodyX = 1556
 ;~ 			$clickBodyY = 200					
 		Case 6 ; twitter
-			;$result = "https://twitter.com"
+			$result = "https://twitter.com"
 ;~ 			$clickBodyX = 1556
 ;~ 			$clickBodyY = 200					
 		Case 7 ; printerest
