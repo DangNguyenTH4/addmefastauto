@@ -20,8 +20,8 @@ Func redditUpvote()
 	$LEFT_MOUSE = "left"
 	$REAL_ACTION_BTN_X = 50
 	$REAL_ACTION_BTN_Y = 255
-	$CLOSE_BTN_X = 482
-	$CLOSE_BTN_Y = 17
+	$CLOSE_BTN_X = 685
+	$CLOSE_BTN_Y = 15
 
 	$x=0;
 	While $x<6
